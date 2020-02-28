@@ -15,5 +15,6 @@ namespace IndyBooks.Models
         // [DataType(DataType.Currency)]
         public decimal Price { get; set; }
         public Writer Author { get; set; }
+        public decimal HighestPrice { get; set; }
     }
 }

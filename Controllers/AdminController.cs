@@ -50,10 +50,15 @@ namespace IndyBooks.Controllers
                              ;
             }
 
-            //if (search.HighestPrice == 1)
-            //    foundBooks = foundBooks
-            //                .OrderByDescending(b => b.Price)
-            //                .FirstOrDefault();
+            //trying to get this to return just an int
+            int highestPriced = foundBooks
+                            .OrderByDescending(b => b.Price)
+                            .FirstOrDefault()
+                            .SingleOrDefault();
+
+            ViewBag.HighestPrice = highestPriced;
+
+
 
             //Composite Search Results
             return View("SearchResults", foundBooks);
