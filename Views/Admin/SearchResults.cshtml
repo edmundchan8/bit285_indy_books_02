@@ -9,32 +9,42 @@
 <!-- TODO: Update to use the new properties from the ERD-->
 <table class="table">
     <tr>
-        <th>Title
+        <th>
+            Title
         </th>
-        <th>Author
+        <th>
+            Author Name
         </th>
-        <th>SKU
+        <th>
+            Author Surname
         </th>
-        <th>Price
+        <th>
+            SKU
+        </th>
+        <th>
+            Price
         </th>
     </tr>
 
     @foreach (var book in Model)
     {
-        <tr>
-            <td>
-                @book.Title
-            </td>
-            <td>
-
-            </td>
-            <td class="rightedge">
-         
-            </td>
-            <td class="rightedge">
-                $@book.Price
-            </td>
-        </tr>
+<tr>
+    <td>
+        @book.Title
+    </td>
+    <td>
+        @book.Author.FirstName
+    </td>
+    <td>
+        @book.Author.LastName
+    </td>
+    <td>
+        @book.SKU
+    </td>
+    <td class="rightedge">
+        $@book.Price
+    </td>
+</tr>
     }
 
 </table>

@@ -7,11 +7,13 @@ namespace IndyBooks.Models
     {
         //TODO: Add properties according to ERD Diagram
         [Key]
-        public int Id { get; set; }
+        public long Id { get; set; }
         [Required]
         public string Title { get; set; }
+        public string SKU { get; set; }
         [Required]
-        [DataType(DataType.Currency)]
+        // [DataType(DataType.Currency)]
         public decimal Price { get; set; }
+        public Writer Author { get; set; }
     }
 }

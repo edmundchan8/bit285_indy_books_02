@@ -23,7 +23,7 @@ namespace IndyBooks.Controllers
         public ActionResult Search(SearchViewModel search)
         {
             //Full Collection Search
-            IQueryable<Book> foundBooks = _db.Books; //.Include(b => b.Author) ; //<<<< Why do you need this
+            IQueryable<Book> foundBooks = _db.Books.Include(b => b.Author); //<<<< Why do you need this
 
             //Partial Title Search
             if (search.Title != null)
@@ -49,6 +49,12 @@ namespace IndyBooks.Controllers
                              .OrderByDescending(b => b.Price)
                              ;
             }
+
+            //if (search.HighestPrice == 1)
+            //    foundBooks = foundBooks
+            //                .OrderByDescending(b => b.Price)
+            //                .FirstOrDefault();
+
             //Composite Search Results
             return View("SearchResults", foundBooks);
         }
